@@ -1,6 +1,7 @@
 #ifndef PCB_H 
 #define PCB_H
 
+#include <cstdio>
 #include <string>
 
 enum class EstadoProceso{ //clase enumerada para definir los estados de un proceso
@@ -20,6 +21,20 @@ inline const char* nombreEstado(EstadoProceso num){             //funcion auxili
         case EstadoProceso::TERMINATED: return "TERMINATED";
     }
     return "DESCONOCIDO";
+}
+
+// Transiciones permitidas del ciclo de vida; cualquier otra (incluida al mismo estado) es invalida.
+inline bool transicionValida(EstadoProceso desde, EstadoProceso hasta){
+    switch (desde) {
+        case EstadoProceso::NEW:     return hasta == EstadoProceso::READY;
+        case EstadoProceso::READY:   return hasta == EstadoProceso::RUNNING;
+        case EstadoProceso::RUNNING: return hasta == EstadoProceso::READY ||
+                                            hasta == EstadoProceso::WAITING ||
+                                            hasta == EstadoProceso::TERMINATED;
+        case EstadoProceso::WAITING: return hasta == EstadoProceso::READY;
+        case EstadoProceso::TERMINATED: return false;
+    }
+    return false;
 }
 
 class PCB{
@@ -42,15 +57,27 @@ class PCB{
 
     //constructor
     PCB(int PID, std::string nombre, int tiempo_llegada, int tiempo_rafaga, int prioridad)
-        : PID(PID), 
-        nombre(nombre), 
-        tiempo_llegada(tiempo_llegada), 
+        : PID(PID),
+        nombre(nombre),
+        estado(EstadoProceso::NEW),
+        tiempo_llegada(tiempo_llegada),
         tiempo_rafaga(tiempo_rafaga), 
         tiempo_restante(tiempo_rafaga), 
         prioridad(prioridad), 
         tiempo_respuesta(-1), 
         tiempo_retorno(-1), 
         tiempo_espera(0) {}
+
+    /** Cambia a nuevo si transicionValida lo permite; si no, no toca nada, avisa por stderr y devuelve false. */
+    bool cambiar_estado(EstadoProceso nuevo){
+        if (!transicionValida(estado, nuevo)) {
+            std::fprintf(stderr, "[ERROR INTERNO] Transicion invalida PID %d: %s -> %s\n",
+                         PID, nombreEstado(estado), nombreEstado(nuevo));
+            return false;
+        }
+        estado = nuevo;
+        return true;
+    }
 
 };
 
