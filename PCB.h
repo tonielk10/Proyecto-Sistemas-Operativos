@@ -11,7 +11,7 @@ enum class EstadoProceso{ //clase enumerada para definir los estados de un proce
     TERMINATED
 };
 
-const char* nombreEstado(EstadoProceso num){             //funcion auxiliar para convertir el estado del proceso a string
+inline const char* nombreEstado(EstadoProceso num){             //funcion auxiliar para convertir el estado del proceso a string
     switch (num) {
         case EstadoProceso::NEW:      return "NEW";
         case EstadoProceso::READY:      return "READY";
