@@ -19,4 +19,11 @@ void comandoPs(const std::vector<std::string>& args, ContextoCli& ctx);
 //Declaración del comando create
 void comandoCreate(const std::vector<std::string>& args, ContextoCli& ctx);
 
+// Comandos de control (ComandosControl.cpp)
+void comandoStart(const std::vector<std::string>& args, ContextoCli& ctx);
+void comandoPause(const std::vector<std::string>& args, ContextoCli& ctx);
+void comandoHelp(const std::vector<std::string>& args, ContextoCli& ctx);
+void comandoSetSched(const std::vector<std::string>& args, ContextoCli& ctx);
+void comandoSetSpeed(const std::vector<std::string>& args, ContextoCli& ctx);
+
 #endif // COMANDOS_H
