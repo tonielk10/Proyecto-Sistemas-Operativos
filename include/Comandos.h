@@ -16,4 +16,7 @@ void comandoExit(const std::vector<std::string>& args, ContextoCli& ctx);
 // Declaración del comando ps
 void comandoPs(const std::vector<std::string>& args, ContextoCli& ctx);
 
+//Declaración del comando create
+void comandoCreate(const std::vector<std::string>& args, ContextoCli& ctx);
+
 #endif // COMANDOS_H
