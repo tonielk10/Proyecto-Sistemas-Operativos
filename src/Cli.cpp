@@ -1,12 +1,14 @@
 #include "../include/Cli.h"
 #include "../include/Tokenizador.h"
 #include "../include/Mensajes.h"
+#include "../include/ComandoCreate.h"
 #include <iostream>
 #include <vector>
 
 Cli::Cli(ContextoCli& ctx) : ctx_(ctx) {
     // para agregar un comando: declararlo en Comandos.h y registrarlo en el constructor
     comandos_["exit"] = comandoExit;
+    comandos_["create"] = comandoCreate;
     comandos_["ps"] = comandoPs;
 }
 
