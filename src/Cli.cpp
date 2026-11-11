@@ -2,6 +2,8 @@
 #include "../include/Tokenizador.h"
 #include "../include/Mensajes.h"
 #include "../include/Comandos.h"
+#include "../include/Cerrojo.h"
+#include "../include/Salida.h"
 #include <iostream>
 #include <vector>
 
@@ -26,12 +28,19 @@ void Cli::ejecutar() {
 
     // Regla: El bucle termina cuando ctx.salir es true
     while (!ctx_.salir) {
-        std::cout << "> " << std::flush;
+        {
+            Cerrojo c(mutex_salida);
+            std::cout << "> " << std::flush;
+        }
 
         if (!std::getline(std::cin, linea)) {
+            Cerrojo c(mutex_salida);
             std::cout << "\n";
             break; 
         }
+
+        // la salida de este comando no se mezcla con la del Motor
+        Cerrojo salida(mutex_salida);
 
         if (!linea.empty() && linea.back() == '\r') {
             linea.pop_back();
