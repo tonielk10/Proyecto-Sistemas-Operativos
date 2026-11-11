@@ -2,7 +2,15 @@
 
 Simulador de un kernel con gestor de procesos y planificador de CPU, controlado desde una consola interactiva. Está escrito en C++17 con `pthreads`: un hilo atiende la consola (CLI) y otro hilo (el Motor) hace avanzar un reloj simulado tick a tick. Soporta las políticas Round Robin (`RR`) y Shortest Remaining Time First (`SRTF`), diagrama de Gantt y métricas de espera, retorno y respuesta.
 
-<!-- COMPLETAR: curso, universidad, semestre y profesor (el repositorio no trae estos datos) -->
+## Integrantes
+
+Vanessa Banezca
+Anabella Freites
+José Quintero
+
+## Profesor
+
+Marcel Castro
 
 ## Requisitos
 
@@ -255,29 +263,3 @@ make test-tsan   # lo mismo con ThreadSanitizer
 ```
 
 `make test` ejecuta todas las pruebas sin detenerse en el primer fallo, imprime `OK <nombre>` o `FALLO <nombre>`, un resumen y termina con código distinto de 0 si alguna falló. `prueba_consola.sh` compila el simulador, ejecuta `tests/entradas/consola_basica.txt` y compara la salida con `tests/esperado/consola_basica.txt`. **Problema conocido:** esa prueba falla hoy porque `tests/esperado/consola_basica.txt` está guardado en UTF-16 y el `diff` contra la salida del simulador nunca coincide; las 12 pruebas restantes pasan.
-
-Para generar la evidencia de concurrencia y memoria (TSan, ASan/UBSan, Valgrind memcheck y Helgrind sobre el simulador real) y dejarla en `docs/evidencia/` junto con un `RESUMEN.md`:
-
-```bash
-bash scripts/generar_evidencia.sh   # tarda varios minutos; ver la cabecera del script
-```
-
-La carpeta `docs/evidencia/` aún no está incluida en el repositorio. <!-- COMPLETAR: enlazar docs/evidencia/RESUMEN.md cuando se genere y se agregue -->
-
-## Equipo y quién hizo qué
-
-Los nombres salen del historial de git; los datos que faltan quedan marcados.
-
-| Autor (git) | Nombre completo / carnet | Trabajo principal según el historial |
-|---|---|---|
-| `vsbanezca` | <!-- COMPLETAR --> | `EstadoSimulador`, `Cerrojo`, `TablaProcesos`, `ColaListos`, `ListaLlegadas`, `GestorProcesos` y transiciones del PCB (issues #4, #6, #8); comando `ps` (#17); `main` (#18); `Motor`, políticas RR/SRTF, `RegistroGantt` y `Metricas` (#31); comandos de control y reportes (#32); `load`, parser de trazas y `workloads/` (#35); `Makefile` (#40); script de evidencia y sincronización de la salida (#41); este README (#43) |
-| Anabella Freites | <!-- COMPLETAR --> | `Mensajes`, `ValidadorNombre`, `Tokenizador`, `ParserEntero`, bucle de lectura del CLI y tabla de comandos con `ContextoCli` y `exit` (#15) |
-| Jose Quintero | <!-- COMPLETAR --> | Estructura inicial y `PCB`, comando `create` (#16), script de prueba de consola (#19) |
-| Vanessa Sarai Banezca Luces | <!-- COMPLETAR --> | Aparece en el historial como autora de merges de pull requests (otra identidad de git; <!-- COMPLETAR: confirmar si es la misma persona que `vsbanezca` --> ) |
-
-<!-- COMPLETAR: integrantes del equipo que no aparezcan en el historial de git -->
-
-## Uso de inteligencia artificial
-
-El uso de herramientas de inteligencia artificial en este proyecto se documenta en el anexo del informe técnico.
-<!-- COMPLETAR: confirmar la referencia exacta al anexo del informe -->
