@@ -1,4 +1,4 @@
-#include "../include/ComandoCreate.h"
+#include "../include/Comandos.h"
 #include "../include/Mensajes.h"
 #include "../include/ValidadorNombre.h"
 #include "../include/ParserEntero.h" // Asegúrate de que este sea el nombre real de tu cabecera

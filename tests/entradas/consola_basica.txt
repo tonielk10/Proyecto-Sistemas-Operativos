@@ -1,0 +1,11 @@
+create P1 5 2
+create P2 3
+create
+create P3 abc
+create P4 0
+create P5 5 9
+hola
+
+ps
+ps extra
+exit
