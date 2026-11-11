@@ -44,7 +44,7 @@ void comandoHelp(const std::vector<std::string>& args, ContextoCli&) {
               << "\n" << USO_CREATE << "\n"
               << "    Crea un proceso y lo deja listo para ejecutar.\n"
               << "    Prioridad 1-5 (1 = más alta), por defecto 3. Ejemplo: create P1 5 2\n"
-              << "\n" << USO_LOAD << " (próximamente)\n"
+              << "\n" << USO_LOAD << "\n"
               << "    Carga procesos desde un archivo. Ejemplo: load procesos.txt\n"
               << "\n" << USO_PS << "\n"
               << "    Lista todos los procesos con su estado.\n"
