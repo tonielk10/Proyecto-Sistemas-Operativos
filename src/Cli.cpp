@@ -10,6 +10,7 @@ Cli::Cli(ContextoCli& ctx) : ctx_(ctx) {
     comandos_["exit"] = comandoExit;
     comandos_["create"] = comandoCreate;
     comandos_["ps"] = comandoPs;
+    comandos_["load"] = comandoLoad;
     comandos_["start"] = comandoStart;
     comandos_["pause"] = comandoPause;
     comandos_["help"] = comandoHelp;

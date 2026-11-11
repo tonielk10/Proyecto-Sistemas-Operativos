@@ -19,6 +19,9 @@ void comandoPs(const std::vector<std::string>& args, ContextoCli& ctx);
 //Declaración del comando create
 void comandoCreate(const std::vector<std::string>& args, ContextoCli& ctx);
 
+// Declaración del comando load (ComandoLoad.cpp)
+void comandoLoad(const std::vector<std::string>& args, ContextoCli& ctx);
+
 // Comandos de control (ComandosControl.cpp)
 void comandoStart(const std::vector<std::string>& args, ContextoCli& ctx);
 void comandoPause(const std::vector<std::string>& args, ContextoCli& ctx);
