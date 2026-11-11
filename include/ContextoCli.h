@@ -10,6 +10,7 @@
 #include "ColaListos.h"
 #include "ListaLlegadas.h"
 #include "GestorProcesos.h"
+#include "RegistroGantt.h"
 
 struct ContextoCli {
     EstadoSimulador& estado;
@@ -18,6 +19,7 @@ struct ContextoCli {
     ListaLlegadas& llegadas;
     GestorProcesos& gestor;
     bool salir = false;   // un comando lo pone en true para cerrar la consola
+    RegistroGantt* gantt = nullptr;  // al final y como puntero para no romper inicializaciones existentes
 };
 
 #endif // CONTEXTOCLI_H
