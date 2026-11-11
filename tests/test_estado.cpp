@@ -5,7 +5,7 @@
 // Compilar (ThreadSanitizer):
 //   g++ -std=c++17 -Wall -Wextra -pthread -g -O1 -fsanitize=thread -Iinclude src/EstadoSimulador.cpp tests/test_estado.cpp -o /tmp/test_estado_tsan
 //   timeout 30 /tmp/test_estado_tsan
-#include "EstadoSimulador.h"
+#include "../include/EstadoSimulador.h"
 
 #include <pthread.h>
 #include <unistd.h>

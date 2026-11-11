@@ -12,12 +12,12 @@
 //   valgrind --tool=helgrind /tmp/test_gestor_g
 //
 // Las pruebas de transiciones invalidas imprimen "[ERROR INTERNO] ..." en stderr a proposito.
-#include "ColaListos.h"
-#include "EstadoSimulador.h"
-#include "GestorProcesos.h"
-#include "ListaLlegadas.h"
-#include "PCB.h"
-#include "TablaProcesos.h"
+#include "../include/ColaListos.h"
+#include "../include/EstadoSimulador.h"
+#include "../include/GestorProcesos.h"
+#include "../include/ListaLlegadas.h"
+#include "../include/PCB.h"
+#include "../include/TablaProcesos.h"
 
 #include <pthread.h>
 #include <sched.h>
