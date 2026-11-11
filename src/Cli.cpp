@@ -7,6 +7,7 @@
 Cli::Cli(ContextoCli& ctx) : ctx_(ctx) {
     // para agregar un comando: declararlo en Comandos.h y registrarlo en el constructor
     comandos_["exit"] = comandoExit;
+    comandos_["ps"] = comandoPs;
 }
 
 void Cli::ejecutar() {

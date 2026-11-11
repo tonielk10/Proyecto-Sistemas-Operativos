@@ -13,4 +13,7 @@ using ManejadorComando = void (*)(const std::vector<std::string>& args, Contexto
 // Declaración del comando exit
 void comandoExit(const std::vector<std::string>& args, ContextoCli& ctx);
 
+// Declaración del comando ps
+void comandoPs(const std::vector<std::string>& args, ContextoCli& ctx);
+
 #endif // COMANDOS_H
