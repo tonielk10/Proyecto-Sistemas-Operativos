@@ -10,11 +10,14 @@ Cli::Cli(ContextoCli& ctx) : ctx_(ctx) {
     comandos_["exit"] = comandoExit;
     comandos_["create"] = comandoCreate;
     comandos_["ps"] = comandoPs;
-    comandos_["set_speed"] = comandoSetSpeed;
-    comandos_["set_sched"] = comandoSetSched;
-    comandos_["help"] = comandoHelp;
-    comandos_["pause"] = comandoPause;
     comandos_["start"] = comandoStart;
+    comandos_["pause"] = comandoPause;
+    comandos_["help"] = comandoHelp;
+    comandos_["pcb"] = comandoPcb;
+    comandos_["set_sched"] = comandoSetSched;
+    comandos_["set_speed"] = comandoSetSpeed;
+    comandos_["gantt"] = comandoGantt;
+    comandos_["stats"] = comandoStats;
 }
 
 void Cli::ejecutar() {

@@ -26,4 +26,9 @@ void comandoHelp(const std::vector<std::string>& args, ContextoCli& ctx);
 void comandoSetSched(const std::vector<std::string>& args, ContextoCli& ctx);
 void comandoSetSpeed(const std::vector<std::string>& args, ContextoCli& ctx);
 
+// Comandos de reporte (ComandosReportes.cpp)
+void comandoPcb(const std::vector<std::string>& args, ContextoCli& ctx);
+void comandoGantt(const std::vector<std::string>& args, ContextoCli& ctx);
+void comandoStats(const std::vector<std::string>& args, ContextoCli& ctx);
+
 #endif // COMANDOS_H
