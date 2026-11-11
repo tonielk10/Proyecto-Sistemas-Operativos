@@ -1,0 +1,6 @@
+proyecto_fase1.exe
+tests/test_estado.exe
+tests/test_estructuras.exe
+tests/test_gestor.exe
+tests/test_parser_entero.exe
+tests/test_tokenizador.exe
