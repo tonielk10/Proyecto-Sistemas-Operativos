@@ -9,9 +9,9 @@
 //   g++ -std=c++17 -pthread -g -I. -Iinclude src/TablaProcesos.cpp src/ColaListos.cpp src/ListaLlegadas.cpp tests/test_estructuras.cpp -o /tmp/test_estructuras_g
 //   valgrind --leak-check=full --error-exitcode=1 /tmp/test_estructuras_g
 //   valgrind --tool=helgrind /tmp/test_estructuras_g
-#include "ListaLlegadas.h"
-#include "TablaProcesos.h"
-#include "ColaListos.h"
+#include "../include/ListaLlegadas.h"
+#include "../include/TablaProcesos.h"
+#include "../include/ColaListos.h"
 
 #include <pthread.h>
 #include <sched.h>
