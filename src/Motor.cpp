@@ -1,3 +1,5 @@
+#include "../include/Cerrojo.h"
+#include "../include/Salida.h"
 #include "../include/Motor.h"
 
 #include <sched.h>
@@ -90,6 +92,7 @@ void Motor::bucle() {
                 dormir_ms(cfg.ms_por_tick);
             } else {
                 estado_.pausar();
+                Cerrojo salida(mutex_salida);
                 std::cout << Mensajes::mensajeInfo("Simulación finalizada: no quedan procesos pendientes.") << std::endl;
             }
             continue;
